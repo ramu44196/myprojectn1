@@ -1,0 +1,12 @@
+from django.contrib import admin
+from django.urls import path, include
+from . import views
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('project1app.urls')),
+    path('', views.customer_list, name='customer_list'),
+    path('add/', views.add_customer, name='add_customer'),
+    path('edit/<int:id>/', views.edit_customer, name='edit_customer'),
+    path('delete/<int:id>/', views.delete_customer, name='delete_customer'),
+]
